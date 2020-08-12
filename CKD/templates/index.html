@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict CKD</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="bp" placeholder="Blood Pressure" required="required" />
+		<input type="text" name="al" placeholder="Albumin" required="required" />
+		<input type="text" name="su" placeholder="Sugar" required="required" />
+		<input type="text" name="bgr" placeholder="Blood Glucose Random" required="required" />
+		<input type="text" name="bu" placeholder="Blood Urea" required="required" />
+		<input type="text" name="sc" placeholder="Serum creatinine" required="required" />
+		<input type="text" name="sod" placeholder="Sodium" required="required" />
+		<input type="text" name="hemo" placeholder="Hemoglobin" required="required" />
+		<input type="text" name="rbc" placeholder="RBC Count" required="required" />
+		<input type="text" name="wbc" placeholder="WBC Count" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
